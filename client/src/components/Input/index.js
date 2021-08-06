@@ -13,7 +13,6 @@ const Input = ({ placeholder, withSuggestion }) => {
   const [search, setSearch] = useState("");
 
   const content = useContent({ search });
-  console.log(content);
 
   const [isFocus, setFocus] = useState(false);
 

@@ -8,8 +8,23 @@ const spotifyApi = new SpotifyWebApi({
 
 const useContent = ({ search }) => {
   const [content, setContent] = useState([]);
+  const [myLikedList, setLikedList] = useState([]);
   const accessToken = useAuth();
-  console.log(content);
+
+  /**
+   * to get some artists
+   * 
+   *     spotifyApi.getArtistAlbums("6qqNVTkY8uBg9cP3Jd7DAH").then(
+            function (data) {
+            console.log("Artist albums", data.body);
+        },
+        function (err) {
+        console.error(err);
+        }
+          );
+
+
+   */
 
   useEffect(() => {
     if (!accessToken) return;
@@ -33,6 +48,7 @@ const useContent = ({ search }) => {
             },
             track?.album?.images[0]
           );
+
           return {
             artist: track?.artists[0]?.name,
             title: track?.name,
@@ -44,6 +60,38 @@ const useContent = ({ search }) => {
     });
     return () => (cancel = true);
   }, [accessToken, search]);
+
+  // get my liked playlist
+
+  // useEffect(() => {
+  //   spotifyApi.setAccessToken(accessToken);
+
+  //   spotifyApi.getMySavedTracks().then(
+  //     (data) => {
+  //       setLikedList(
+  //         data?.body?.items?.map((track) => {
+  //           const smallestAlbumImage = track?.track?.album?.images?.reduce(
+  //             (smallest, image) => {
+  //               if (image?.height < smallest?.height) return image;
+  //               return smallest;
+  //             },
+  //             track?.album?.images[0]
+  //           );
+  //           console.log(track)
+  //           return {
+  //             artist: track?.track?.artists[0]?.name,
+  //             title: track?.track?.name,
+  //             uri: track?.track?.uri,
+  //             albumUrl: smallestAlbumImage?.url,
+  //           };
+  //         })
+  //       );
+  //     },
+  //     (err) => {
+  //       console.log("Something went wrong!", err);
+  //     }
+  //   );
+  // }, [accessToken]);
 
   return content;
 };

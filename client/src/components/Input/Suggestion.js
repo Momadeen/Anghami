@@ -38,6 +38,7 @@ const Suggestion = ({ content }) => {
               padding=".5em 1em .3em"
               _hover={{ bg: "bg.200" }}
               alignItems="center"
+              cursor="pointer"
             >
               <Flex alignContent="center" alignItems="center">
                 <Img
