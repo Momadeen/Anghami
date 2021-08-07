@@ -1,6 +1,5 @@
 import { Box, Flex } from "@chakra-ui/react";
 import Avatar from "components/Avatar";
-import useAuth from "hooks/useAuth";
 import Input from "../Input";
 import Community from "./components/Community";
 import MoreOptions from "./components/MoreOptions";
