@@ -1,12 +1,7 @@
-import { useContext, useEffect, useMemo, useState } from "react";
-import axios from "axios";
-import { CodeContext } from "App/App";
+import { useEffect, useState } from "react";
 
 const useAuth = () => {
-  const code = useContext(CodeContext);
   const [accessToken, setAccessToken] = useState();
-  const [refreshToken, setRefreshToken] = useState();
-  const [expiresIn, setExpiresIn] = useState();
 
   // const cookies = useMemo(() => {
   //   const allCookies = decodeURIComponent(document.cookie)?.split(";");
@@ -31,8 +26,6 @@ const useAuth = () => {
 
       const data = await result.json();
       setAccessToken(data?.access_token);
-      setRefreshToken(data?.refreshToken);
-      setExpiresIn(data?.expires_in);
       window.history.pushState({}, null, "/home");
       return data;
     })();

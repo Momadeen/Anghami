@@ -54,7 +54,7 @@ const Input = ({ placeholder, withSuggestion }) => {
           </InputGroup>
         </form>
         {isFocus && withSuggestion ? (
-          <Suggestion content={content} setFocus={setFocus} />
+          <Suggestion content={content} setFocus={setFocus} search={search} />
         ) : null}
       </Flex>
     </Flex>

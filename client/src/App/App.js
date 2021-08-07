@@ -4,12 +4,16 @@ import theme from "../theme";
 import "./App.css";
 import Routes from "./routes";
 
+// const code = new URLSearchParams(window.location.search).get("code");
+
+// export const CodeContext = createContext();
+
 function App() {
   return (
     <ChakraProvider theme={theme}>
-      <Router>
-        <Routes />
-      </Router>
+        <Router>
+          <Routes />
+        </Router>
     </ChakraProvider>
   );
 }
