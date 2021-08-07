@@ -1,15 +1,9 @@
 import { useEffect, useState } from "react";
-import SpotifyWebApi from "spotify-web-api-node";
+import spotifyApi from "./spotifyApi";
 import useAuth from "./useAuth";
 
-var spotifyApi = new SpotifyWebApi({
-  clientId: "40e38ee535784944aec08d2ae67a7281",
-  clientSecret: "6722df18357c443bad279c55b1d1b1c2",
-  redirectUri: "http://localhost:3000/callback",
-});
-
-const useContent = ({ search }) => {
-  const [content, setContent] = useState([]);
+const useContent = () => {
+  const [content, setContent] = useState({});
   const accessToken = useAuth();
 
   useEffect(() => {
@@ -17,76 +11,62 @@ const useContent = ({ search }) => {
     spotifyApi.setAccessToken(accessToken);
   }, [accessToken]);
 
-  // for search
   useEffect(() => {
-    if (!search) return setContent([]);
-    if (!accessToken) return;
-
-    spotifyApi.searchTracks(search).then((res) => {
-      setContent(
-        res?.body?.tracks?.items?.map((track) => {
-          console.log({ track });
-          const smallestAlbumImage = track?.album?.images?.reduce(
-            (smallest, image) => {
-              if (image?.height < smallest?.height) return image;
-              return smallest;
-            },
-            track?.album?.images[0]
-          );
-
-          return {
-            artist: track?.artists[0]?.name,
-            title: track?.name,
-            uri: track?.uri,
-            albumUrl: smallestAlbumImage?.url,
-          };
-        })
+    (async () => {
+      await spotifyApi.setAccessToken(accessToken);
+      // New Release in EGYPT
+      spotifyApi.getNewReleases({ limit: 20, offset: 0, country: "EG" }).then(
+        (data) => {
+          setContent((prev) => ({
+            ...prev,
+            newRelase: data?.body?.albums?.items,
+          }));
+        },
+        function (err) {
+          console.log("Something went wrong!", err);
+        }
       );
-    });
-  }, [accessToken, search]);
 
-  // New Release in EGYPT
-  // useEffect(() => {
-  //   spotifyApi.getNewReleases({ limit: 20, offset: 0, country: "EG" }).then(
-  //     function (data) {
-  //       console.log(data.body);
-  //     },
-  //     function (err) {
-  //       console.log("Something went wrong!", err);
-  //     }
-  //   );
-  // }, [accessToken]);
+      // Artists related to Amr Diab
+      spotifyApi.getArtistRelatedArtists("5abSRg0xN1NV3gLbuvX24M").then(
+        (data) => {
+          setContent((prev) => ({ ...prev, artists: data?.body?.artists }));
+        },
+        function (err) {
+          console.log(err);
+        }
+      );
 
-  // Moods
-  // useEffect(() => {
-  //   spotifyApi
-  //     .getCategories({
-  //       limit: 30,
-  //       offset: 0,
-  //       country: "SE",
-  //       locale: "sv_SE",
-  //     })
-  //     .then(
-  //       function (data) {
-  //         console.log(data.body);
-  //       },
-  //       function (err) {
-  //         console.log("Something went wrong!", err);
-  //       }
-  //     );
-  // }, []);
+      spotifyApi.getArtistTopTracks("5abSRg0xN1NV3gLbuvX24M", "EG").then(
+        (data) => {
+          setContent((prev) => ({ ...prev, tracksEG: data?.body?.tracks }));
+        },
+        function (err) {
+          console.log("Something went wrong!", err);
+        }
+      );
+    })();
+  }, [accessToken]);
 
-  // Artists related to Amr Diab
-  // useEffect(() => {
-  //   spotifyApi.getArtistRelatedArtists("5abSRg0xN1NV3gLbuvX24M").then(
-  //     function (data) {
-  //       console.log(data.body);
-  //     },
-  //     function (err) {
-  //       console.log(err);
-  //     }
-  //   );
-  // }, []);
+  // Moods || Categories
+
+  useEffect(() => {
+    spotifyApi.setAccessToken(accessToken);
+    spotifyApi
+      .getCategories({
+        limit: 30,
+        offset: 0,
+        country: "EG"
+      })
+      .then(
+        function (data) {
+          console.log(data.body);
+        },
+        function (err) {
+          console.log("Something went wrong!", err);
+        }
+      );
+  }, []);
 
   return content;
 };

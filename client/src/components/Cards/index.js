@@ -2,7 +2,7 @@ import { Box, Flex, Icon, Link, Text } from "@chakra-ui/react";
 import { useState } from "react";
 import { BsPlayFill, BsThreeDots } from "react-icons/bs";
 
-const Card = ({ song, withOutPlay, ...props }) => {
+const Card = ({ songImg, songTitle, artist, withOutPlay, ...props }) => {
   const [showplay, setShowPlay] = useState(false);
   return (
     <Flex flexDirection="column">
@@ -24,9 +24,10 @@ const Card = ({ song, withOutPlay, ...props }) => {
             bottom="0"
             right="0"
             left="0"
+            zIndex="100"
             d={showplay ? "block" : "none"}
           >
-            {!withOutPlay && (
+            {!withOutPlay ? (
               <>
                 <Flex
                   w="100%"
@@ -34,6 +35,8 @@ const Card = ({ song, withOutPlay, ...props }) => {
                   alignContent="center"
                   alignItems="flex-end"
                   justifyContent="center"
+                  zIndex="999"
+                  transition="0.2s all ease-in-out"
                 >
                   <Flex
                     alignContent="center"
@@ -45,6 +48,7 @@ const Card = ({ song, withOutPlay, ...props }) => {
                     borderRadius="50%"
                     cursor="pointer"
                     marginRight="1em"
+                    _hover={{ transform: "scale(1.3)" }}
                   >
                     <Icon color="icon.100" as={BsPlayFill} />
                   </Flex>
@@ -57,17 +61,26 @@ const Card = ({ song, withOutPlay, ...props }) => {
                     bg="icon.100"
                     borderRadius="50%"
                     cursor="pointer"
+                    _hover={{ transform: "scale(1.3)" }}
                   >
                     <Icon color="icon.200" as={BsThreeDots} />
                   </Flex>
                 </Flex>
-                <Box opacity="0.4" position="absolute" top="0" bg="bg.black" h="100%" w="100%" />
               </>
-            )}
+            ) : null}
+            <Box
+              opacity="0.4"
+              position="absolute"
+              top="0"
+              bg="bg.black"
+              h="100%"
+              w="100%"
+              zIndex="-1"
+            />
           </Flex>
           <Box
             w="100%"
-            bgImage="url(https://artwork.angham.me//webp/?id=141468771&size=640)"
+            bgImage={`url(${songImg})`}
             bgRepeat="no-repeat"
             bgSize="102%"
             bgPosition="50%"
@@ -78,10 +91,10 @@ const Card = ({ song, withOutPlay, ...props }) => {
         </Box>
         <Flex flexDirection="column" mt="0.3em">
           <Text fontSize="0.8em" color="text.100">
-            {song?.name}
+            {songTitle}
           </Text>
           <Text fontSize="0.6em" color="text.200">
-            {song?.singer}
+            {artist}
           </Text>
         </Flex>
       </Link>

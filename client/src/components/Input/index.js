@@ -5,14 +5,14 @@ import {
   InputGroup,
   InputRightElement,
 } from "@chakra-ui/react";
-import useContent from "hooks/useContent";
+import useSearchContent from "hooks/useSearchContent";
 import { useEffect, useState } from "react";
 import Suggestion from "./Suggestion";
 
 const Input = ({ placeholder, withSuggestion }) => {
   const [search, setSearch] = useState("");
 
-  const content = useContent({ search });
+  const searchContent = useSearchContent({ search });
 
   const [isFocus, setFocus] = useState(false);
 
@@ -54,7 +54,11 @@ const Input = ({ placeholder, withSuggestion }) => {
           </InputGroup>
         </form>
         {isFocus && withSuggestion ? (
-          <Suggestion content={content} setFocus={setFocus} search={search} />
+          <Suggestion
+            content={searchContent}
+            setFocus={setFocus}
+            search={search}
+          />
         ) : null}
       </Flex>
     </Flex>
