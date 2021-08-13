@@ -8,10 +8,10 @@ const Card = ({ songImg, songTitle, artist, withOutPlay, ...props }) => {
     <Flex flexDirection="column">
       <Link w="100%" height="100%">
         <Box
-          w="190px"
+          w={["6em", "8em", "10em", "200px"]}
+          height={["6em", "8em", "10em", "200px"]}
           position="relative"
           overflow="hidden"
-          height="190px"
           borderRadius="1em"
           onMouseEnter={() => setShowPlay(true)}
           onMouseLeave={() => setShowPlay(false)}
@@ -93,7 +93,7 @@ const Card = ({ songImg, songTitle, artist, withOutPlay, ...props }) => {
           <Text fontSize="0.8em" color="text.100">
             {songTitle}
           </Text>
-          <Text fontSize="0.6em" color="text.200">
+          <Text fontSize="0.8em" color="text.200">
             {artist}
           </Text>
         </Flex>

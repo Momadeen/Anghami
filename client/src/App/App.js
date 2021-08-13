@@ -1,5 +1,6 @@
 import { ChakraProvider } from "@chakra-ui/react";
 import { BrowserRouter as Router } from "react-router-dom";
+import { BreakpointProvider } from "react-socks";
 import theme from "../theme";
 import "./App.css";
 import Routes from "./routes";
@@ -11,9 +12,11 @@ import Routes from "./routes";
 function App() {
   return (
     <ChakraProvider theme={theme}>
+      <BreakpointProvider>
         <Router>
           <Routes />
         </Router>
+      </BreakpointProvider>
     </ChakraProvider>
   );
 }

@@ -33,7 +33,7 @@ const theme = extendTheme({
       100: "#404040",
       200: "#212121",
     },
-    shadow: "0 0 17px -5px rgb(0 0 0 / 61%)",
+    shadow: { 100: "0 0 17px -5px rgb(0 0 0 / 61%)", 200: "0 0 0 2px #8D00F2" },
     placeholder: "#a8a8a8",
   },
 });

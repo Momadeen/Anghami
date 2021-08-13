@@ -56,17 +56,20 @@ const useContent = () => {
       .getCategories({
         limit: 30,
         offset: 0,
-        country: "EG"
+        country: "EG",
       })
       .then(
-        function (data) {
-          console.log(data.body);
+        (data) => {
+          setContent((prev) => ({
+            ...prev,
+            moods: data?.body?.categories?.items,
+          }));
         },
         function (err) {
           console.log("Something went wrong!", err);
         }
       );
-  }, []);
+  }, [accessToken]);
 
   return content;
 };

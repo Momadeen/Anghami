@@ -1,12 +1,10 @@
 import { Img, ListItem, Text } from "@chakra-ui/react";
 import { useMemo, useState } from "react";
-import { Link, useHistory } from "react-router-dom";
+import { Link } from "react-router-dom";
 
 const Item = ({ pathname, link }) => {
   const [isHover, setHover] = useState(false);
-  const history = useHistory();
   const isActive = useMemo(() => pathname === link?.url, [link?.url, pathname]);
-
   return (
     <ListItem
       as={Link}
@@ -19,11 +17,10 @@ const Item = ({ pathname, link }) => {
       alignItems="center"
       bg={isActive && "hover.100"}
       borderRadius="10px"
-      href={link?.url}
+      to={link?.url}
       _hover={{ bg: "hover.100" }}
       onMouseEnter={() => setHover(true)}
       onMouseLeave={() => setHover(false)}
-      onClick={() => history.push(link?.url)}
     >
       <Img
         objectFit="cover"
