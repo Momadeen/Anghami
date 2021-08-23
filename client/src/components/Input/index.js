@@ -1,24 +1,24 @@
-import { SearchIcon } from "@chakra-ui/icons";
+import { useEffect, useState } from 'react';
+import { SearchIcon } from '@chakra-ui/icons';
 import {
   Flex,
   Input as InputChakra,
   InputGroup,
   InputRightElement,
-} from "@chakra-ui/react";
-import useSearchContent from "hooks/useSearchContent";
-import { useEffect, useState } from "react";
-import Suggestion from "./Suggestion";
+} from '@chakra-ui/react';
+import useSearchContent from 'hooks/useSearchContent';
+import Suggestion from './Suggestion';
 
 const Input = ({ placeholder, withSuggestion }) => {
-  const [search, setSearch] = useState("");
+  const [search, setSearch] = useState('');
 
   const searchContent = useSearchContent({ search });
 
   const [isFocus, setFocus] = useState(false);
 
   useEffect(() => {
-    const input = document.getElementById("input");
-    document.addEventListener("mousedown", (e) => {
+    const input = document.getElementById('input');
+    document.addEventListener('mousedown', (e) => {
       if (input.contains(e?.target)) {
         setFocus(true);
       } else {
@@ -28,7 +28,13 @@ const Input = ({ placeholder, withSuggestion }) => {
   }, []);
 
   return (
-    <Flex position="relative" id="input" minW="20em" marginX="2em" flexGrow="1">
+    <Flex
+      position="relative"
+      id="input"
+      minW="20em"
+      marginX="2em"
+      flexGrow="1"
+    >
       <Flex>
         <form>
           <InputGroup maxWidth="25em" minWidth="20em">
@@ -44,12 +50,19 @@ const Input = ({ placeholder, withSuggestion }) => {
               placeholder={placeholder}
               autoComplete="false"
               color="text.100"
-              _hover={{ border: "none", outline: "none" }}
-              _placeholder={{ color: "placeholder", fontSize: "0.8em" }}
+              _hover={{ border: 'none', outline: 'none' }}
+              _placeholder={{
+                color: 'placeholder',
+                fontSize: '0.8em',
+              }}
               onChange={(e) => setSearch(e?.target?.value)}
             />
             <InputRightElement width="4.5rem" h="2em">
-              <SearchIcon color="icon.100" h="100%" size="sm" />
+              <SearchIcon
+                color="icon.100"
+                h="100%"
+                size="sm"
+              />
             </InputRightElement>
           </InputGroup>
         </form>

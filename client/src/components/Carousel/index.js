@@ -1,7 +1,10 @@
-import { Flex, Icon } from "@chakra-ui/react";
-import { motion } from "framer-motion";
-import { useCallback, useMemo, useState } from "react";
-import { RiArrowDropRightLine, RiArrowDropLeftLine } from "react-icons/ri";
+import { useCallback, useMemo, useState } from 'react';
+import { Flex, Icon } from '@chakra-ui/react';
+import { motion } from 'framer-motion';
+import {
+  RiArrowDropRightLine,
+  RiArrowDropLeftLine,
+} from 'react-icons/ri';
 
 const Carousel = ({ children }) => {
   const [translate, setTranslate] = useState(0);
@@ -9,21 +12,22 @@ const Carousel = ({ children }) => {
 
   const eachCardWidth = 188;
 
-  const maxWidth = useMemo(() => {
-    return children?.length * eachCardWidth;
-  }, [children?.length, eachCardWidth]);
-  const jump = useMemo(() => {
-    return eachCardWidth * 4;
-  }, [eachCardWidth]);
+  const maxWidth = useMemo(
+    () => children?.length * eachCardWidth,
+    [children?.length, eachCardWidth]
+  );
+  const jump = useMemo(
+    () => eachCardWidth * 4,
+    [eachCardWidth]
+  );
 
   const onClick = useCallback(
     (arrow) => {
-      if (arrow === "right") {
+      if (arrow === 'right') {
         setTranslate(translate - jump);
       } else {
         if (translate === 0) return;
         setTranslate(translate + jump);
-        return;
       }
     },
     [jump, translate]
@@ -42,12 +46,19 @@ const Carousel = ({ children }) => {
           cursor="pointer"
           whileTap={{ scale: 0.9 }}
           whileHover={{ scale: 1.1 }}
-          onClick={() => onClick("left")}
+          onClick={() => onClick('left')}
           animate={{
-            visibility: translate === 0 || translate > 0 ? "hidden" : "visible",
+            visibility:
+              translate === 0 || translate > 0
+                ? 'hidden'
+                : 'visible',
           }}
         >
-          <Icon fontSize="2em" color="icon.100" as={RiArrowDropLeftLine} />
+          <Icon
+            fontSize="2em"
+            color="icon.100"
+            as={RiArrowDropLeftLine}
+          />
         </MotionContainer>
       </Flex>
       <Flex
@@ -68,15 +79,21 @@ const Carousel = ({ children }) => {
           alignItems="center"
           justifyContent="center"
           cursor="pointer"
-          onClick={() => onClick("right")}
+          onClick={() => onClick('right')}
           whileTap={{ scale: 0.9 }}
           whileHover={{ scale: 1.1 }}
           animate={{
             visibility:
-              Math.abs(translate) + jump >= maxWidth ? "hidden" : "visible",
+              Math.abs(translate) + jump >= maxWidth
+                ? 'hidden'
+                : 'visible',
           }}
         >
-          <Icon fontSize="2em" color="icon.100" as={RiArrowDropRightLine} />
+          <Icon
+            fontSize="2em"
+            color="icon.100"
+            as={RiArrowDropRightLine}
+          />
         </MotionContainer>
       </Flex>
     </Flex>

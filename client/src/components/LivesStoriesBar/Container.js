@@ -1,6 +1,6 @@
-import { Flex, Text } from "@chakra-ui/react";
-import Button from "components/Button";
-import { IoMdRefresh } from "react-icons/io";
+import { Flex, Text } from '@chakra-ui/react';
+import Button from 'components/Button';
+import { IoMdRefresh } from 'react-icons/io';
 
 const Container = ({ title, children }) => (
   <Flex
@@ -17,11 +17,19 @@ const Container = ({ title, children }) => (
       alignItems="center"
       justifyContent="space-between"
     >
-      <Text fontWeight="700" fontSize="0.8em" color="text.100">
+      <Text
+        fontWeight="700"
+        fontSize="0.8em"
+        color="text.100"
+      >
         {title}
       </Text>
-      {title === "Stories" && (
-        <Button IconName={IoMdRefresh} borderRadius="1em" type="ghost">
+      {title === 'Stories' && (
+        <Button
+          IconName={IoMdRefresh}
+          borderRadius="1em"
+          type="ghost"
+        >
           Refresh
         </Button>
       )}

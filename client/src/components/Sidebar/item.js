@@ -1,10 +1,13 @@
-import { Img, ListItem, Text } from "@chakra-ui/react";
-import { useMemo, useState } from "react";
-import { Link } from "react-router-dom";
+import { useMemo, useState } from 'react';
+import { Img, ListItem, Text } from '@chakra-ui/react';
+import { Link } from 'react-router-dom';
 
 const Item = ({ pathname, link }) => {
   const [isHover, setHover] = useState(false);
-  const isActive = useMemo(() => pathname === link?.url, [link?.url, pathname]);
+  const isActive = useMemo(
+    () => pathname === link?.url,
+    [link?.url, pathname],
+  );
   return (
     <ListItem
       as={Link}
@@ -15,10 +18,10 @@ const Item = ({ pathname, link }) => {
       marginX="0.2em"
       marginY="1em"
       alignItems="center"
-      bg={isActive && "hover.100"}
+      bg={isActive && 'hover.100'}
       borderRadius="10px"
       to={link?.url}
-      _hover={{ bg: "hover.100" }}
+      _hover={{ bg: 'hover.100' }}
       onMouseEnter={() => setHover(true)}
       onMouseLeave={() => setHover(false)}
     >
@@ -34,8 +37,10 @@ const Item = ({ pathname, link }) => {
         textAlign="center"
         fontSize="0.75em"
         d="block"
-        color={isActive || isHover ? "text.100" : "text.200"}
-        fontWeight={isActive || isHover ? "700" : "600"}
+        color={
+          isActive || isHover ? 'text.100' : 'text.200'
+        }
+        fontWeight={isActive || isHover ? '700' : '600'}
       >
         {link?.title}
       </Text>

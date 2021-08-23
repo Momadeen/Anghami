@@ -1,8 +1,15 @@
-import { Divider, Flex, Icon, List, ListItem, Text } from "@chakra-ui/react";
-import { Link } from "react-router-dom";
-import { Link as LinkChakra } from "@chakra-ui/react";
-import { Switch } from "@chakra-ui/react";
-import { IoCloudyNightOutline } from "react-icons/io5";
+import {
+  Divider,
+  Flex,
+  Icon,
+  List,
+  ListItem,
+  Text,
+  Link as LinkChakra,
+  Switch,
+} from '@chakra-ui/react';
+import { IoCloudyNightOutline } from 'react-icons/io5';
+import { Link } from 'react-router-dom';
 
 const Options = ({ optionsList }) => (
   <Flex
@@ -29,8 +36,8 @@ const Options = ({ optionsList }) => (
       <LinkChakra
         color="text.300"
         as={Link}
-        style={{ textDecoration: "none" }}
-        _hover={{ fontWeight: "600" }}
+        style={{ textDecoration: 'none' }}
+        _hover={{ fontWeight: '600' }}
         fontSize="14px"
       >
         View Profile
@@ -41,11 +48,14 @@ const Options = ({ optionsList }) => (
       {optionsList?.anghamiList?.map((list) => (
         <ListItem
           p="0.2em 1em"
-          _hover={{ bg: "hover.200" }}
+          _hover={{ bg: 'hover.200' }}
           mb="10px"
           color="text.100"
         >
-          <LinkChakra _hover={{ fontWeight: "600" }} fontSize="14px">
+          <LinkChakra
+            _hover={{ fontWeight: '600' }}
+            fontSize="14px"
+          >
             {list?.name}
           </LinkChakra>
         </ListItem>
@@ -57,22 +67,36 @@ const Options = ({ optionsList }) => (
         <>
           <ListItem
             p="0.2em 1em"
-            _hover={{ bg: "hover.200" }}
+            _hover={{ bg: 'hover.200' }}
             my="5px"
             color="text.100"
           >
             {list?.icon}
-            <LinkChakra _hover={{ fontWeight: "600" }} fontSize="14px">
+            <LinkChakra
+              _hover={{ fontWeight: '600' }}
+              fontSize="14px"
+            >
               {list?.name}
             </LinkChakra>
           </ListItem>
-          <Divider borderColor="border.200" borderWidth="1px" />
+          <Divider
+            borderColor="border.200"
+            borderWidth="1px"
+          />
         </>
       ))}
     </List>
-    <Flex p="0.8em 1em" w="100%" justifyContent="space-between">
+    <Flex
+      p="0.8em 1em"
+      w="100%"
+      justifyContent="space-between"
+    >
       <Flex alignItems="center">
-        <Icon color="icon.100" marginRight="0.5em" as={IoCloudyNightOutline} />
+        <Icon
+          color="icon.100"
+          marginRight="0.5em"
+          as={IoCloudyNightOutline}
+        />
         <Text color="text.100" mb="0" fontSize="14px">
           Dark mode
         </Text>

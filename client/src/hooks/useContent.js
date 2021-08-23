@@ -1,6 +1,6 @@
-import { useEffect, useState } from "react";
-import spotifyApi from "./spotifyApi";
-import useAuth from "./useAuth";
+import { useEffect, useState } from 'react';
+import spotifyApi from './spotifyApi';
+import useAuth from './useAuth';
 
 const useContent = () => {
   const [content, setContent] = useState({});
@@ -15,36 +15,55 @@ const useContent = () => {
     (async () => {
       await spotifyApi.setAccessToken(accessToken);
       // New Release in EGYPT
-      spotifyApi.getNewReleases({ limit: 20, offset: 0, country: "EG" }).then(
-        (data) => {
-          setContent((prev) => ({
-            ...prev,
-            newRelase: data?.body?.albums?.items,
-          }));
-        },
-        function (err) {
-          console.log("Something went wrong!", err);
-        }
-      );
+      spotifyApi
+        .getNewReleases({
+          limit: 20,
+          offset: 0,
+          country: 'EG',
+        })
+        .then(
+          (data) => {
+            setContent((prev) => ({
+              ...prev,
+              newRelase: data?.body?.albums?.items,
+            }));
+          },
+          (err) => {
+            // eslint-disable-next-line no-console
+            console.log('Something went wrong!', err);
+          }
+        );
 
       // Artists related to Amr Diab
-      spotifyApi.getArtistRelatedArtists("5abSRg0xN1NV3gLbuvX24M").then(
-        (data) => {
-          setContent((prev) => ({ ...prev, artists: data?.body?.artists }));
-        },
-        function (err) {
-          console.log(err);
-        }
-      );
+      spotifyApi
+        .getArtistRelatedArtists('5abSRg0xN1NV3gLbuvX24M')
+        .then(
+          (data) => {
+            setContent((prev) => ({
+              ...prev,
+              artists: data?.body?.artists,
+            }));
+          },
+          (err) => {
+            // eslint-disable-next-line no-console
+            console.log(err);
+          }
+        );
 
-      spotifyApi.getArtistTopTracks("5abSRg0xN1NV3gLbuvX24M", "EG").then(
-        (data) => {
-          setContent((prev) => ({ ...prev, tracksEG: data?.body?.tracks }));
-        },
-        function (err) {
-          console.log("Something went wrong!", err);
-        }
-      );
+      spotifyApi
+        .getArtistTopTracks('5abSRg0xN1NV3gLbuvX24M', 'EG')
+        .then(
+          (data) => {
+            setContent((prev) => ({
+              ...prev,
+              tracksEG: data?.body?.tracks,
+            }));
+          },
+          (err) => {
+            // eslint-disable-next-line no-console
+            console.log('Something went wrong!', err);
+          }
+        );
     })();
   }, [accessToken]);
 
@@ -56,7 +75,7 @@ const useContent = () => {
       .getCategories({
         limit: 30,
         offset: 0,
-        country: "EG",
+        country: 'EG',
       })
       .then(
         (data) => {
@@ -65,8 +84,9 @@ const useContent = () => {
             moods: data?.body?.categories?.items,
           }));
         },
-        function (err) {
-          console.log("Something went wrong!", err);
+        (err) => {
+          // eslint-disable-next-line no-console
+          console.log('Something went wrong!', err);
         }
       );
   }, [accessToken]);

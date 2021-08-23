@@ -1,15 +1,27 @@
-import { Box, Flex, Icon, Link, Text } from "@chakra-ui/react";
-import { useState } from "react";
-import { BsPlayFill, BsThreeDots } from "react-icons/bs";
+import { useState } from 'react';
+import {
+  Box,
+  Flex,
+  Icon,
+  Link,
+  Text,
+} from '@chakra-ui/react';
+import { BsPlayFill, BsThreeDots } from 'react-icons/bs';
 
-const Card = ({ songImg, songTitle, artist, withOutPlay, ...props }) => {
+const Card = ({
+  songImg,
+  songTitle,
+  artist,
+  withOutPlay,
+  ...props
+}) => {
   const [showplay, setShowPlay] = useState(false);
   return (
     <Flex flexDirection="column">
-      <Link w="100%" height="100%">
+      <Link href="#" w="100%" height="100%">
         <Box
-          w={["6em", "8em", "10em", "200px"]}
-          height={["6em", "8em", "10em", "200px"]}
+          w={['6em', '8em', '10em', '200px']}
+          height={['6em', '8em', '10em', '200px']}
           position="relative"
           overflow="hidden"
           borderRadius="1em"
@@ -25,7 +37,7 @@ const Card = ({ songImg, songTitle, artist, withOutPlay, ...props }) => {
             right="0"
             left="0"
             zIndex="100"
-            d={showplay ? "block" : "none"}
+            d={showplay ? 'block' : 'none'}
           >
             {!withOutPlay ? (
               <>
@@ -48,9 +60,12 @@ const Card = ({ songImg, songTitle, artist, withOutPlay, ...props }) => {
                     borderRadius="50%"
                     cursor="pointer"
                     marginRight="1em"
-                    _hover={{ transform: "scale(1.3)" }}
+                    _hover={{ transform: 'scale(1.3)' }}
                   >
-                    <Icon color="icon.100" as={BsPlayFill} />
+                    <Icon
+                      color="icon.100"
+                      as={BsPlayFill}
+                    />
                   </Flex>
                   <Flex
                     alignContent="center"
@@ -61,9 +76,12 @@ const Card = ({ songImg, songTitle, artist, withOutPlay, ...props }) => {
                     bg="icon.100"
                     borderRadius="50%"
                     cursor="pointer"
-                    _hover={{ transform: "scale(1.3)" }}
+                    _hover={{ transform: 'scale(1.3)' }}
                   >
-                    <Icon color="icon.200" as={BsThreeDots} />
+                    <Icon
+                      color="icon.200"
+                      as={BsThreeDots}
+                    />
                   </Flex>
                 </Flex>
               </>
@@ -86,7 +104,9 @@ const Card = ({ songImg, songTitle, artist, withOutPlay, ...props }) => {
             bgPosition="50%"
             h="100%"
             transition="0.4s all ease-in-out"
-            transform={showplay && "scale(1.1) translateX(10px)"}
+            transform={
+              showplay && 'scale(1.1) translateX(10px)'
+            }
           />
         </Box>
         <Flex flexDirection="column" mt="0.3em">

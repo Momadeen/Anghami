@@ -1,45 +1,53 @@
-import { Flex, Img, List, ListItem } from "@chakra-ui/react";
-
-import logo from "images/logo.png";
-
-import explore from "images/explore.png";
-import exploreSelected from "images/exploreSelected.png";
-import dj from "images/personaldj.png";
-import djSelected from "images/personaldjSelected.png";
-import podcasts from "images/podcasts.png";
-import podcastsSelected from "images/podcastsSelected.png";
-import library from "images/library.png";
-import librarySelected from "images/librarySelected.png";
-import upload from "images/upload.png";
-import uploadSelected from "images/uploadSelected.png";
-import { Link, useLocation } from "react-router-dom";
-import Item from "./item";
+import {
+  Flex,
+  Img,
+  List,
+  ListItem,
+} from '@chakra-ui/react';
+import explore from 'images/explore.png';
+import exploreSelected from 'images/exploreSelected.png';
+import library from 'images/library.png';
+import librarySelected from 'images/librarySelected.png';
+import logo from 'images/logo.png';
+import dj from 'images/personaldj.png';
+import djSelected from 'images/personaldjSelected.png';
+import podcasts from 'images/podcasts.png';
+import podcastsSelected from 'images/podcastsSelected.png';
+import upload from 'images/upload.png';
+import uploadSelected from 'images/uploadSelected.png';
+import { Link, useLocation } from 'react-router-dom';
+import Item from './item';
 
 const links = [
-  { title: "Explore", img: explore, active: exploreSelected, url: "/home" },
   {
-    title: "Mood & Genre",
+    title: 'Explore',
+    img: explore,
+    active: exploreSelected,
+    url: '/home',
+  },
+  {
+    title: 'Mood & Genre',
     img: dj,
     active: djSelected,
-    url: "/personal-dj",
+    url: '/personal-dj',
   },
   {
-    title: "Podcasts",
+    title: 'Podcasts',
     img: podcasts,
     active: podcastsSelected,
-    url: "/podcasts",
+    url: '/podcasts',
   },
   {
-    title: "Your Library",
+    title: 'Your Library',
     img: library,
     active: librarySelected,
-    url: "/mymusic",
+    url: '/mymusic',
   },
   {
-    title: "Upload your music",
+    title: 'Upload your music',
     img: upload,
     active: uploadSelected,
-    url: "/upload-music",
+    url: '/upload-music',
   },
 ];
 

@@ -1,6 +1,6 @@
-import { useEffect, useState } from "react";
-import spotifyApi from "./spotifyApi";
-import useAuth from "./useAuth";
+import { useEffect, useState } from 'react';
+import spotifyApi from './spotifyApi';
+import useAuth from './useAuth';
 
 const useSearchContent = ({ search }) => {
   const [searchContent, setSearchContent] = useState([]);
@@ -24,7 +24,7 @@ const useSearchContent = ({ search }) => {
               if (image?.height < smallest?.height) return image;
               return smallest;
             },
-            track?.album?.images[0]
+            track?.album?.images[0],
           );
 
           return {
@@ -33,7 +33,7 @@ const useSearchContent = ({ search }) => {
             uri: track?.uri,
             albumUrl: smallestAlbumImage?.url,
           };
-        })
+        }),
       );
     });
   }, [accessToken, search]);

@@ -1,9 +1,9 @@
-import { Box, Flex, Grid } from "@chakra-ui/react";
-import Header from "components/Header";
-import LivesStoriesBar from "components/LivesStoriesBar";
-import Player from "components/Player";
-import Sidebar from "components/Sidebar";
-import { useCurrentWidth } from "react-socks";
+import { Box, Flex, Grid } from '@chakra-ui/react';
+import Header from 'components/Header';
+import LivesStoriesBar from 'components/LivesStoriesBar';
+import Player from 'components/Player';
+import Sidebar from 'components/Sidebar';
+import { useCurrentWidth } from 'react-socks';
 
 const Layout = ({ children }) => {
   const width = useCurrentWidth();
@@ -19,12 +19,14 @@ const Layout = ({ children }) => {
         padding="3em 0 0 6em"
         overflow="hidden"
       >
-        <Grid templateColumns={width < 768 ? "1fr" : "4fr 1fr"}>
+        <Grid
+          templateColumns={width < 768 ? '1fr' : '4fr 1fr'}
+        >
           <Box
-            h="95vh"
+            h="85vh"
             overflowX="hidden"
             overflowY="auto"
-            padding="1.2em 1em 1.2em 1.5em"
+            padding="1.2em 1em 0 1.5em"
             w="100%"
           >
             <Box overflowX="hidden" minH="95vh">
