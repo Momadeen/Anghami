@@ -24,5 +24,6 @@ module.exports = {
     'react/jsx-props-no-spreading': 'off',
     'jsx-a11y/anchor-is-valid': 'off',
     'comma-dangle': 'off',
+    'operator-linebreak': 'off',
   },
 };
