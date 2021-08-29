@@ -6,19 +6,10 @@ const Moods = () => {
   const content = useContent();
   return (
     <Flex flexDirection="column" w="100%" h="100%">
-      <Text
-        fontWeight="600"
-        fontSize="2em"
-        color="text.100"
-      >
+      <Text fontWeight="600" fontSize="2em" color="text.100">
         Mood & Genre
       </Text>
-      <Flex
-        mt="2em"
-        flexWrap="wrap"
-        w="100%"
-        flexDirection="row"
-      >
+      <Flex mt="2em" flexWrap="wrap" w="100%" flexDirection="row">
         {content?.moods?.map((mood) => (
           <MoodCard mood={mood} />
         ))}

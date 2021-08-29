@@ -25,5 +25,7 @@ module.exports = {
     'jsx-a11y/anchor-is-valid': 'off',
     'comma-dangle': 'off',
     'operator-linebreak': 'off',
+    'object-curly-newline': 'off',
+    'react/jsx-one-expression-per-line': 'off',
   },
 };

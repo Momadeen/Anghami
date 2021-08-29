@@ -1,26 +1,9 @@
-import {
-  Divider,
-  Flex,
-  Icon,
-  Text,
-} from '@chakra-ui/react';
-import {
-  useCallback,
-  useEffect,
-  useMemo,
-  useState,
-} from 'react';
+import { Divider, Flex, Icon, Text } from '@chakra-ui/react';
+import { useCallback, useEffect, useMemo, useState } from 'react';
 
-import {
-  MdDevicesOther,
-  MdOndemandVideo,
-} from 'react-icons/md';
+import { MdDevicesOther, MdOndemandVideo } from 'react-icons/md';
 import { VscSymbolKeyword } from 'react-icons/vsc';
-import {
-  FiVolume1,
-  FiVolume2,
-  FiVolume,
-} from 'react-icons/fi';
+import { FiVolume1, FiVolume2, FiVolume } from 'react-icons/fi';
 import { RiArrowDropUpLine } from 'react-icons/ri';
 
 import VolumeSlider from './VolumeSlider';
@@ -33,8 +16,7 @@ const options = [
 
 const PlayMoreOptions = () => {
   const [volumePer, setVolumePer] = useState(50);
-  const [showVolumeSlider, setShowVolumeSlider] =
-    useState(false);
+  const [showVolumeSlider, setShowVolumeSlider] = useState(false);
 
   const onVolumeClick = useCallback(() => {
     if (volumePer !== 0) setVolumePer(0);
@@ -80,18 +62,29 @@ const PlayMoreOptions = () => {
             cursor="pointer"
           />
         </Flex>
-        <Divider
-          borderColor="white"
-          orientation="vertical"
-        />
+        <Divider borderColor="white" orientation="vertical" />
+        <Flex id="inputVolume" marginX="2em" position="relative" w="2em">
+          <Icon
+            onClick={onVolumeClick}
+            as={VolumeIcon}
+            color="icon.100"
+            fontSize="1.5em"
+            cursor="pointer"
+          />
+          {showVolumeSlider && (
+            <VolumeSlider setVolumePer={setVolumePer} value={volumePer} />
+          )}
+        </Flex>
+        <Divider borderColor="white" orientation="vertical" />
         <Flex h="100%" alignItems="center">
-          {options?.map((option) => (
+          {options?.map((option, i) => (
             <>
               <Flex
                 borderRadius="8px"
                 _hover={{ bg: 'hover.100' }}
                 marginX="0.5em"
                 padding="0.6em"
+                cursor="pointer"
               >
                 {option?.title === 'queue' ? (
                   <>
@@ -106,7 +99,6 @@ const PlayMoreOptions = () => {
                     <Icon
                       fontSize="1.5em"
                       color="icon.100"
-                      cursor="pointer"
                       marginX="0.3em"
                       as={option?.icon}
                     />
@@ -131,32 +123,11 @@ const PlayMoreOptions = () => {
                   </>
                 )}
               </Flex>
-              <Divider
-                borderColor="white"
-                orientation="vertical"
-              />
+              {i !== 2 && (
+                <Divider borderColor="white" orientation="vertical" />
+              )}
             </>
           ))}
-        </Flex>
-        <Flex
-          id="inputVolume"
-          marginX="2em"
-          position="relative"
-          w="2em"
-        >
-          <Icon
-            onClick={onVolumeClick}
-            as={VolumeIcon}
-            color="icon.100"
-            fontSize="1.5em"
-            cursor="pointer"
-          />
-          {showVolumeSlider && (
-            <VolumeSlider
-              setVolumePer={setVolumePer}
-              value={volumePer}
-            />
-          )}
         </Flex>
       </Flex>
     </Flex>

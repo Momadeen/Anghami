@@ -74,25 +74,12 @@ const Stories = () => (
           w="100%"
           padding="0.2em"
         >
-          <Avatar
-            hasStories
-            w="3em"
-            h="3em"
-            src={live?.img}
-          />
+          <Avatar hasStories w="3em" h="3em" src={live?.img} />
           <Flex flexDirection="column" marginLeft="0.8em">
-            <Text
-              fontWeight="500"
-              fontSize="0.9em"
-              color="text.100"
-            >
+            <Text fontWeight="500" fontSize="0.9em" color="text.100">
               {live?.name}
             </Text>
-            <Text
-              fontWeight="500"
-              fontSize="0.6em"
-              color="text.200"
-            >
+            <Text fontWeight="500" fontSize="0.6em" color="text.200">
               {live?.time}
             </Text>
           </Flex>

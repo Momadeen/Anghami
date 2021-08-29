@@ -1,13 +1,7 @@
 import { useMemo } from 'react';
-import {
-  Button as ChakraButton,
-  Icon,
-  Text,
-} from '@chakra-ui/react';
+import { Button as ChakraButton, Icon, Text } from '@chakra-ui/react';
 
-const Button = ({
-  type, children, IconName, ...props
-}) => {
+const Button = ({ type, children, IconName, ...props }) => {
   const style = useMemo(() => {
     let bg = '';
     let bgHover = '';
@@ -17,7 +11,7 @@ const Button = ({
     }
     if (type === 'primary') {
       bg = 'brand.100';
-      bgHover = 'hsla(0,0%,82.7%,.58)';
+      bgHover = 'hover.300';
     }
 
     return { bg, bgHover };

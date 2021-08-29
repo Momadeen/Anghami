@@ -15,24 +15,17 @@ const useAuth = () => {
 
   useEffect(() => {
     (async () => {
-      const result = await fetch(
-        'https://accounts.spotify.com/api/token',
-        {
-          method: 'POST',
-          headers: {
-            'Content-Type':
-              'application/x-www-form-urlencoded',
-            Authorization: `Basic ${btoa(
-              `${clientId}:${clientSecret}`,
-            )}`,
-          },
-          body: 'grant_type=client_credentials',
+      const result = await fetch('https://accounts.spotify.com/api/token', {
+        method: 'POST',
+        headers: {
+          'Content-Type': 'application/x-www-form-urlencoded',
+          Authorization: `Basic ${btoa(`${clientId}:${clientSecret}`)}`,
         },
-      );
+        body: 'grant_type=client_credentials',
+      });
 
       const data = await result.json();
       setAccessToken(data?.access_token);
-      window.history.pushState({}, null, '/home');
       return data;
     })();
   }, []);

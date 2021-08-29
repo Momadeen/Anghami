@@ -32,6 +32,7 @@ const theme = extendTheme({
     hover: {
       100: '#404040',
       200: '#212121',
+      300: '#6100a6',
     },
     shadow: {
       100: '0 0 17px -5px rgb(0 0 0 / 61%)',
