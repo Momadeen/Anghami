@@ -5,7 +5,6 @@ import { useHistory } from 'react-router';
 
 const ArtistCard = ({ artist }) => {
   const history = useHistory();
-  console.log(artist);
   return (
     <Flex
       cursor="pointer"

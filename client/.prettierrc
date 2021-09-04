@@ -1,4 +1,18 @@
 {
-    "singleQuote": true
+  "endOfLine": "lf",
+  "singleQuote": true,
+  "parser": "flow",
+  "trailingComma": "none",
+  "arrowParens": "avoid",
+  "printWidth": 60,
+  "semi": true,
+  "overrides": [
+    {
+      "files": "*.scss",
+      "options": {
+        "parser": "scss"
+      }
+    }
+  ]
   }
   

@@ -1,36 +1,47 @@
-import { useCallback, useMemo, useState } from 'react';
+import {
+  useCallback,
+  useMemo,
+  useState,
+  useRef
+} from 'react';
 import { Flex, Icon } from '@chakra-ui/react';
 import { motion } from 'framer-motion';
 import {
   RiArrowDropRightLine,
-  RiArrowDropLeftLine,
+  RiArrowDropLeftLine
 } from 'react-icons/ri';
 
 const Carousel = ({ children }) => {
   const [translate, setTranslate] = useState(0);
   const MotionContainer = motion(Flex);
+  const containerRef = useRef();
 
-  const eachCardWidth = 188;
+  const eachCardWidth =
+    containerRef?.current?.scrollWidth / children?.length;
 
   const maxWidth = useMemo(
-    () => children?.length * eachCardWidth,
-    [children?.length, eachCardWidth]
+    () => eachCardWidth * children?.length,
+    [children, eachCardWidth]
   );
   const jump = useMemo(
-    () => eachCardWidth * 4,
+    () => eachCardWidth * 3,
     [eachCardWidth]
   );
 
   const onClick = useCallback(
-    (arrow) => {
+    arrow => {
       if (arrow === 'right') {
-        setTranslate(translate - jump);
+        if (Math.abs(translate) + jump + 500 > maxWidth) {
+          setTranslate(0);
+        } else {
+          setTranslate(translate - jump);
+        }
       } else {
         if (translate === 0) return;
         setTranslate(translate + jump);
       }
     },
-    [jump, translate]
+    [jump, translate, maxWidth]
   );
 
   return (
@@ -51,7 +62,7 @@ const Carousel = ({ children }) => {
             visibility:
               translate === 0 || translate > 0
                 ? 'hidden'
-                : 'visible',
+                : 'visible'
           }}
         >
           <Icon
@@ -67,6 +78,7 @@ const Carousel = ({ children }) => {
         w="97%"
         transition="transform 330ms ease-in-out"
         id="container"
+        ref={containerRef}
       >
         {children}
       </Flex>
@@ -84,9 +96,9 @@ const Carousel = ({ children }) => {
           whileHover={{ scale: 1.1 }}
           animate={{
             visibility:
-              Math.abs(translate) + jump >= maxWidth
+              Math.abs(translate) >= maxWidth
                 ? 'hidden'
-                : 'visible',
+                : 'visible'
           }}
         >
           <Icon

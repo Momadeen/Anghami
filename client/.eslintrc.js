@@ -1,17 +1,18 @@
 module.exports = {
   env: {
     browser: true,
-    es2021: true,
+    es2021: true
   },
   extends: ['plugin:react/recommended', 'airbnb'],
   parserOptions: {
     ecmaFeatures: {
-      jsx: true,
+      jsx: true
     },
     ecmaVersion: 12,
-    sourceType: 'module',
+    sourceType: 'module'
   },
   plugins: ['react'],
+  parser: 'babel-eslint',
   rules: {
     'no-console': 'warn',
     treatUndefinedAsUnspecified: 'off',
@@ -27,5 +28,8 @@ module.exports = {
     'operator-linebreak': 'off',
     'object-curly-newline': 'off',
     'react/jsx-one-expression-per-line': 'off',
-  },
+    'import/prefer-default-export': 'off',
+    'prefer-arrow-callback': 'off',
+    'arrow-parens': 'off'
+  }
 };

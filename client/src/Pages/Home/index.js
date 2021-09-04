@@ -1,5 +1,5 @@
 import { Box, Flex, Text } from '@chakra-ui/react';
-import Card from 'components/Cards';
+import { TrackCard } from 'components/Cards';
 import ArtistCard from 'components/Cards/ArtistCard';
 import Carousel from 'components/Carousel';
 import Helmet from 'components/Helmet';
@@ -21,15 +21,18 @@ const Home = () => {
             </Text>
             <Flex mt="1em">
               <Carousel>
-                {content?.newRelase?.map((newSong) => (
-                  <Box mr="1em">
-                    <Card
-                      artist={newSong?.artists[0]?.name}
-                      songTitle={newSong?.name}
-                      songImg={newSong?.images[1]?.url}
-                    />
-                  </Box>
-                ))}
+                {content?.newRelase?.length
+                  ? content?.newRelase?.map((newTrack) => (
+                    <Box mr="1em">
+                      <TrackCard
+                        artistID={newTrack?.artists[0]?.id}
+                        artist={newTrack?.artists[0]?.name}
+                        songTitle={newTrack?.name}
+                        songImg={newTrack?.images[1]?.url}
+                      />
+                    </Box>
+                  ))
+                  : Array(8).fill(<TrackCard loading />)}
               </Carousel>
             </Flex>
           </Flex>
@@ -40,15 +43,18 @@ const Home = () => {
             </Text>
             <Flex mt="1em">
               <Carousel>
-                {content?.tracksEG?.map((newSong) => (
-                  <Box mr="1em">
-                    <Card
-                      artist={newSong?.artists[0]?.name}
-                      songTitle={newSong?.name}
-                      songImg={newSong?.album?.images[1]?.url}
-                    />
-                  </Box>
-                ))}
+                {content?.tracksEG?.length
+                  ? content?.tracksEG?.map((trackEg) => (
+                    <Box mr="1em">
+                      <TrackCard
+                        artistID={trackEg?.artists[0]?.id}
+                        artist={trackEg?.artists[0]?.name}
+                        songTitle={trackEg?.name}
+                        songImg={trackEg?.album?.images[1]?.url}
+                      />
+                    </Box>
+                  ))
+                  : Array(8).fill(<TrackCard loading />)}
               </Carousel>
             </Flex>
           </Flex>
