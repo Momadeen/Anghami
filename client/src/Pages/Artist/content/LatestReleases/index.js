@@ -9,16 +9,15 @@ const LatestReleases = () => {
   const { lastAlbum, artist } = useGetSingleArtist({
     id
   });
-  console.log(artist);
   return (
-    <Flex w="100%">
+    <Flex mb="2em" w="100%">
       <Carousel>
         {lastAlbum?.map(track => (
           <Box mr="1em">
             <LatestReleaseCard
               src={artist?.images[0]?.url}
               trackName={track?.name}
-              releaseDate="10/07/2021"
+              releaseDate="Sep 2"
               artist={track?.artists[0]?.name}
             />
           </Box>

@@ -11,6 +11,9 @@ const All = lazy(() => import('../../content/All'));
 const LatestReleases = lazy(
   () => import('../../content/LatestReleases')
 );
+const PopularSongs = lazy(
+  () => import('../../content/PopularSongs')
+);
 
 const Routes = () => {
   const { id } = useParams();
@@ -20,7 +23,10 @@ const Routes = () => {
         <Switch>
           <Route path="/artist/:id/5" component={All} />
           <Route path="/artist/:id/4" component={All} />
-          <Route path="/artist/:id/3" component={All} />
+          <Route
+            path="/artist/:id/3"
+            component={PopularSongs}
+          />
           <Route
             path="/artist/:id/2"
             component={LatestReleases}

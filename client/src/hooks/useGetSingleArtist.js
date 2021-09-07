@@ -26,7 +26,7 @@ const useGetSingleArtist = ({ id }) => {
         }
       );
       // Get an artist's top tracks
-      spotifyApi.getArtistTopTracks(id, 'EG').then(
+      spotifyApi.getArtistTopTracks(id, 'GB').then(
         data => {
           setArtistContent(prev => ({
             ...prev,
@@ -47,7 +47,7 @@ const useGetSingleArtist = ({ id }) => {
           }));
           // get last album
           spotifyApi
-            .getAlbum(data?.body?.items[0]?.id)
+            .getAlbum(data?.body?.items[0]?.id, 'EG')
             .then(
               lastAlbumData => {
                 setArtistContent(prev => ({
