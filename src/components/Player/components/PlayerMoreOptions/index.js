@@ -54,9 +54,9 @@ const PlayMoreOptions = () => {
         w="100%"
         alignItems="center"
       >
-        <Flex marginX="2em">
+        <Flex marginX="1vw">
           <Icon
-            fontSize="1.5em"
+            fontSize="1.2vw"
             color="icon.100"
             as={MdDevicesOther}
             cursor="pointer"
@@ -68,7 +68,7 @@ const PlayMoreOptions = () => {
             onClick={onVolumeClick}
             as={VolumeIcon}
             color="icon.100"
-            fontSize="1.5em"
+            fontSize="1.2vw"
             cursor="pointer"
           />
           {showVolumeSlider && (
@@ -90,14 +90,14 @@ const PlayMoreOptions = () => {
                   <>
                     <Text
                       fontWeight="600"
-                      fontSize="0.9em"
+                      fontSize="0.7vw"
                       color="text.100"
                       textTransform="uppercase"
                     >
                       {option?.title}
                     </Text>
                     <Icon
-                      fontSize="1.5em"
+                      fontSize="1.1vw"
                       color="icon.100"
                       marginX="0.3em"
                       as={option?.icon}
@@ -106,7 +106,7 @@ const PlayMoreOptions = () => {
                 ) : (
                   <>
                     <Icon
-                      fontSize="1.5em"
+                      fontSize="1.1vw"
                       color="icon.100"
                       cursor="pointer"
                       marginX="0.3em"
@@ -114,7 +114,7 @@ const PlayMoreOptions = () => {
                     />
                     <Text
                       fontWeight="600"
-                      fontSize="0.9em"
+                      fontSize="0.7vw"
                       color="text.100"
                       textTransform="uppercase"
                     >

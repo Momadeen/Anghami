@@ -13,7 +13,7 @@ const TrackSlider = () => (
   >
     <Flex w="95%" justifyContent="space-around">
       <Text
-        fontSize="0.8em"
+        fontSize="0.8vw"
         margin="2em 1em"
         color="text.200"
       >
@@ -23,14 +23,14 @@ const TrackSlider = () => (
         <Icon
           color="icon.100"
           marginX="0.5em"
-          fontSize="1.8em"
+          fontSize="1.3vw"
           as={TiArrowRepeat}
           cursor="pointer"
         />
         <Icon
           cursor="pointer"
           color="icon.100"
-          fontSize="2.2em"
+          fontSize="1.5vw"
           marginX="0.5em"
           as={BiSkipPrevious}
         />
@@ -57,7 +57,7 @@ const TrackSlider = () => (
         <Icon
           cursor="pointer"
           color="icon.100"
-          fontSize="2.2em"
+          fontSize="1.5vw"
           as={BiSkipNext}
           marginX="0.5em"
         />
@@ -65,12 +65,12 @@ const TrackSlider = () => (
           cursor="pointer"
           color="icon.100"
           marginX="0.5em"
-          fontSize="1.2em"
+          fontSize="1.2vw"
           as={BsShuffle}
         />
       </Flex>
       <Text
-        fontSize="0.8em"
+        fontSize="0.8vw"
         margin="2em 1em"
         color="text.200"
       >
