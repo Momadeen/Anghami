@@ -54,7 +54,7 @@ const PlayMoreOptions = () => {
         w="100%"
         alignItems="center"
       >
-        <Flex marginX="1vw">
+        <Flex marginX="1.5vw">
           <Icon
             fontSize="1.2vw"
             color="icon.100"
