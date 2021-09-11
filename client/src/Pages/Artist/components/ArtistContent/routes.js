@@ -14,6 +14,10 @@ const LatestReleases = lazy(
 const PopularSongs = lazy(
   () => import('../../content/PopularSongs')
 );
+const Albums = lazy(() => import('../../content/Albums'));
+const SimilarArtists = lazy(
+  () => import('../../content/SimilarArtists')
+);
 
 const Routes = () => {
   const { id } = useParams();
@@ -21,8 +25,11 @@ const Routes = () => {
     <Suspense fallback={() => <h1>Loading...</h1>}>
       <Flex marginTop="2em">
         <Switch>
-          <Route path="/artist/:id/5" component={All} />
-          <Route path="/artist/:id/4" component={All} />
+          <Route
+            path="/artist/:id/5"
+            component={SimilarArtists}
+          />
+          <Route path="/artist/:id/4" component={Albums} />
           <Route
             path="/artist/:id/3"
             component={PopularSongs}

@@ -39,6 +39,7 @@ const Options = ({ optionsList }) => (
         style={{ textDecoration: 'none' }}
         _hover={{ fontWeight: '600' }}
         fontSize="14px"
+        to="/me"
       >
         View Profile
       </LinkChakra>

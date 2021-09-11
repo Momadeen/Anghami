@@ -32,6 +32,7 @@ const useSearchContent = ({ search }) => {
             title: track?.name,
             uri: track?.uri,
             albumUrl: smallestAlbumImage?.url,
+            id: track?.artists[0]?.id
           };
         }),
       );

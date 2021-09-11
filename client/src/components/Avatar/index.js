@@ -3,7 +3,7 @@ import {
   Flex,
   Avatar as ChakraAvatar,
   Text,
-  Icon,
+  Icon
 } from '@chakra-ui/react';
 import { FcFilm } from 'react-icons/fc';
 import './Avatar.css';
@@ -14,16 +14,19 @@ const Avatar = ({
   plus,
   hasStories,
   size,
+  onClick,
   ...props
 }) => {
   const style = useMemo(() => {
     let border = '1px solid #fff';
     const borderColor = 'text.100';
-    let badge = 'linear-gradient(90deg,#e13f8c 0,#9d2ad5 46%,#517bdd)';
+    let badge =
+      'linear-gradient(90deg,#e13f8c 0,#9d2ad5 46%,#517bdd)';
 
     if (type === 'live') {
       border = '2px solid transparent';
-      badge = 'linear-gradient(90deg, rgb(208, 35, 12), rgb(255, 153, 87))';
+      badge =
+        'linear-gradient(90deg, rgb(208, 35, 12), rgb(255, 153, 87))';
     }
 
     if (hasStories) {
@@ -33,12 +36,12 @@ const Avatar = ({
     return {
       border,
       borderColor,
-      badge,
+      badge
     };
   }, [hasStories, type]);
 
   return (
-    <Flex position="relative">
+    <Flex position="relative" onClick={onClick}>
       <ChakraAvatar
         border={style?.border}
         borderColor={style?.borderColor}

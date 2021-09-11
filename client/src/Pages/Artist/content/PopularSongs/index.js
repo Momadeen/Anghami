@@ -8,9 +8,8 @@ const PopularSongs = () => {
   const { topTracks } = useGetSingleArtist({
     id
   });
-  console.log(topTracks);
   return (
-    <Flex flexDirection="column" w="100%">
+    <Flex flexDirection="column" w="100%" mb="2em">
       <Text
         fontWeight="700"
         color="text.100"

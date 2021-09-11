@@ -1,7 +1,16 @@
 import { useState } from 'react';
-import { Box, Flex, Icon, Link, Text } from '@chakra-ui/react';
+import {
+  Box,
+  Flex,
+  Icon,
+  Link,
+  Text
+} from '@chakra-ui/react';
 import { BsPlayFill, BsThreeDots } from 'react-icons/bs';
-import { Skeleton, SkeletonText } from '@chakra-ui/skeleton';
+import {
+  Skeleton,
+  SkeletonText
+} from '@chakra-ui/skeleton';
 
 const TrackCard = ({
   songImg,
@@ -14,7 +23,7 @@ const TrackCard = ({
 }) => {
   const [showplay, setShowPlay] = useState(false);
   return (
-    <Flex flexDirection="column">
+    <Flex flexDirection="column" {...props}>
       <Link href="#" w="100%" height="100%">
         {loading ? (
           <Flex flexDirection="column" mr="1em">
@@ -24,7 +33,11 @@ const TrackCard = ({
               borderRadius="1em"
             />
             <Flex flexDirection="column" mt="0.3em">
-              <SkeletonText mt="4" noOfLines={1} spacing="2" />
+              <SkeletonText
+                mt="4"
+                noOfLines={1}
+                spacing="2"
+              />
               <SkeletonText mt="2" noOfLines={1} w="50%" />
             </Flex>
           </Flex>
@@ -37,7 +50,6 @@ const TrackCard = ({
             borderRadius="1em"
             onMouseEnter={() => setShowPlay(true)}
             onMouseLeave={() => setShowPlay(false)}
-            {...props}
           >
             <Flex
               h="100%"
@@ -72,7 +84,10 @@ const TrackCard = ({
                       marginRight="1em"
                       _hover={{ transform: 'scale(1.3)' }}
                     >
-                      <Icon color="icon.100" as={BsPlayFill} />
+                      <Icon
+                        color="icon.100"
+                        as={BsPlayFill}
+                      />
                     </Flex>
                     <Flex
                       alignContent="center"
@@ -85,7 +100,10 @@ const TrackCard = ({
                       cursor="pointer"
                       _hover={{ transform: 'scale(1.3)' }}
                     >
-                      <Icon color="icon.200" as={BsThreeDots} />
+                      <Icon
+                        color="icon.200"
+                        as={BsThreeDots}
+                      />
                     </Flex>
                   </Flex>
                 </>
@@ -108,7 +126,9 @@ const TrackCard = ({
               bgPosition="50%"
               h="100%"
               transition="0.4s all ease-in-out"
-              transform={showplay && 'scale(1.1) translateX(10px)'}
+              transform={
+                showplay && 'scale(1.1) translateX(10px)'
+              }
             />
           </Box>
         )}

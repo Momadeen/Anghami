@@ -13,10 +13,7 @@ const Artist = () => {
   return (
     <>
       <Helmet title={artist?.name} />
-      <Flex
-        height="100%"
-        w="100%"
-      >
+      <Flex height="100%" w="100%">
         <ArtistBar artist={artist} />
         <ArtistContent />
       </Flex>
