@@ -12,16 +12,17 @@ const colors = [
   '#020644',
   '#B73313',
   '#391876',
-  '#27CA9A',
+  '#27CA9A'
 ];
 const MoodCard = ({ mood }) => {
-  const cardBg = useMemo(() => colors[
-    Math?.floor(Math?.random() * colors?.length)
-  ], []);
+  const cardBg = useMemo(
+    () => colors[Math?.floor(Math?.random() * colors?.length)],
+    []
+  );
   return (
     <Flex
       cursor="pointer"
-      flexBasis="19%"
+      flexBasis={['100%', '44%', '45%', '19%']}
       marginRight="0.7em"
       marginBottom="0.7em"
       overflow="hidden"

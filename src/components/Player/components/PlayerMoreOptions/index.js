@@ -43,9 +43,9 @@ const PlayMoreOptions = () => {
   return (
     <Flex
       marginX="0.5em"
-      flexBasis="30%"
-      width="30%"
-      maxWidth="30%"
+      flexBasis={['0%', '0%', '0%', '30%']}
+      width={['0%', '0%', '0%', '30%']}
+      maxWidth={['0%', '0%', '0%', '30%']}
       paddingY="1em"
     >
       <Flex

@@ -4,7 +4,7 @@ import {
   AiFillHeart,
   AiOutlineCloudDownload,
   AiOutlineShareAlt,
-  AiOutlineHeart,
+  AiOutlineHeart
 } from 'react-icons/ai';
 import { BsThreeDotsVertical } from 'react-icons/bs';
 import { useCurrentWidth } from 'react-socks';
@@ -14,16 +14,16 @@ import Icon from '@chakra-ui/icon';
 
 const TrackInfo = () => {
   const [like, setLike] = useState(false);
-  const onClickLike = () => setLike((prev) => !prev);
+  const onClickLike = () => setLike(prev => !prev);
 
   const width = useCurrentWidth();
   return (
     <Flex
       justifyContent="space-between"
       marginX="0.5em"
-      flexBasis="30%"
-      width="30%"
-      maxWidth="30%"
+      flexBasis={['50%', '50%', '50%', '30%']}
+      width={['50%', '50%', '50%', '30%']}
+      maxWidth={['50%', '50%', '50%', '30%']}
     >
       <Flex alignItems="center">
         <Img
@@ -50,7 +50,7 @@ const TrackInfo = () => {
         </Flex>
       </Flex>
       <Flex justifyContent="center" alignItems="center">
-        {width > 768 && (
+        {width > 920 && (
           <>
             <Icon
               cursor="pointer"

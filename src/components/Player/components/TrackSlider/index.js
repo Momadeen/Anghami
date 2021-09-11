@@ -7,13 +7,13 @@ import Slider from '../Slider';
 const TrackSlider = () => (
   <Flex
     position="relative"
-    flexBasis="40%"
-    width="40%"
-    maxWidth="40%"
+    flexBasis={['50%', '50%', '50%', '40%']}
+    width={['50%', '50%', '50%', '40%']}
+    maxWidth={['50%', '50%', '50%', '40%']}
   >
     <Flex w="95%" justifyContent="space-around">
       <Text
-        fontSize="0.8vw"
+        fontSize={['2.5vw', '2vw', '2vw', '0.8vw']}
         margin="2em 1em"
         color="text.200"
       >
@@ -23,14 +23,14 @@ const TrackSlider = () => (
         <Icon
           color="icon.100"
           marginX="0.5em"
-          fontSize="1.3vw"
+          fontSize={['2vw', '2vw', '2vw', '1.3vw']}
           as={TiArrowRepeat}
           cursor="pointer"
         />
         <Icon
           cursor="pointer"
           color="icon.100"
-          fontSize="1.5vw"
+          fontSize={['2vw', '2vw', '2vw', '1.3vw']}
           marginX="0.5em"
           as={BiSkipPrevious}
         />
@@ -57,7 +57,7 @@ const TrackSlider = () => (
         <Icon
           cursor="pointer"
           color="icon.100"
-          fontSize="1.5vw"
+          fontSize={['2vw', '2vw', '2vw', '1.5vw']}
           as={BiSkipNext}
           marginX="0.5em"
         />
@@ -65,12 +65,12 @@ const TrackSlider = () => (
           cursor="pointer"
           color="icon.100"
           marginX="0.5em"
-          fontSize="1.2vw"
+          fontSize={['2vw', '2vw', '2vw', '1.3vw']}
           as={BsShuffle}
         />
       </Flex>
       <Text
-        fontSize="0.8vw"
+        fontSize={['2.5vw', '2vw', '2vw', '0.8vw']}
         margin="2em 1em"
         color="text.200"
       >

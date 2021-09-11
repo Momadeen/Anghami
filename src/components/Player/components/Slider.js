@@ -9,7 +9,7 @@ import {
 const Slider = () => (
   <Box
     w="80%"
-    left="3.5em"
+    left="3.5vw"
     position="absolute"
     bottom="0.5em"
   >
