@@ -29,7 +29,7 @@ const MyProfile = () => (
             </Link>
             <Link
               target="_blank"
-              href="https://github.com/Momadeen"
+              href="https://github.com/Momadeen?tab=repositories"
             >
               <Icon w="3em" height="3em" color="icon.100" as={AiFillGithub} />
             </Link>
