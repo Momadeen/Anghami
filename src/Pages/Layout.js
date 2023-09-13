@@ -9,11 +9,10 @@ const Layout = ({ children }) => {
   const width = useCurrentWidth();
 
   return (
-    <Flex flexDirection="row" w="100vw" h="100vh">
+    <Flex flexDirection="row" w="100vw" h="100vh" bg="bg.100">
       <Header />
       <Sidebar />
       <Box
-        bg="bg.100"
         w="100%"
         h="100%"
         padding="3em 0 0 6em"
