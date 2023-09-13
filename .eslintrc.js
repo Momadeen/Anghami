@@ -14,6 +14,7 @@ module.exports = {
   plugins: ['react'],
   parser: 'babel-eslint',
   rules: {
+    'linebreak-style': ['error', 'windows'], // or "windows" for CRLF
     'no-console': 'warn',
     treatUndefinedAsUnspecified: 'off',
     'react/jsx-filename-extension': 'off',
