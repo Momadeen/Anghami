@@ -5,14 +5,7 @@ import {
   ListItem,
   Text,
 } from '@chakra-ui/react';
-
-const links = [
-  { href: '#', title: 'About' },
-  { href: '#', title: 'Products' },
-  { href: '#', title: 'Team Anghami' },
-  { href: '#', title: 'Careers' },
-  { href: '#', title: 'Help' },
-];
+import links from 'constants/lives';
 
 const OurLinks = () => (
   <Flex w="100%" flexDirection="column">
